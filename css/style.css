@@ -45,6 +45,7 @@ body {
 
 a {
     text-decoration: none;
+    user-select: none;
 }
 
 .flex {
@@ -59,6 +60,12 @@ a {
     align-items: center;
     justify-content: center;
     gap: 2em;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    color: va;
 }
 
 .gap * {
@@ -328,6 +335,65 @@ section {
     width: 400px;
     height: 400px;
 }
+.section-seven {
+    background-color: var(--hero-bg);
+    padding: 4em 0;
+}
+
+.section-seven .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4em;
+}
+
+.section-seven p {
+    color: var(--main-text);
+    font-size: var(--fs-400);
+    margin-bottom: 1em;
+}
+
+.section-seven h2 {
+    color: var(--dark-primary);
+    font-size: var(--fs-700);
+    line-height: var(--lh-200);
+    margin-bottom: 1.5em;
+    max-width: 500px;
+}
+
+.section-seven .email-signup {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.section-seven input[type="email"] {
+    padding: 1em 1.5em;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    width: 300px;
+    font-size: var(--fs-400);
+}
+
+.section-seven button {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1em 2em;
+    border-radius: 8px;
+    font-size: var(--fs-400);
+}
+
+.section-seven span {
+    color: var(--primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.section-seven img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+}
 
 footer {
     display: flex;
@@ -342,7 +408,18 @@ footer {
 }
 
 .last-footer {
+    width: 80%;
+    max-width: 1100px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.last-footer > img{
+    width: 160px;
+    height: 28px;
+}
+
+.last-footer p {
+    margin-left: 1.5em;
 }
