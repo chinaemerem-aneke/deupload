@@ -6,18 +6,16 @@
     <title>Deupload</title>
 
     <!-- Our customized CSS -->
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- Our customized fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <!-- Navigation bar -->
     <nav class="nav-menu">
-        <img src="Assets/logo-color 1.png" alt="logo">
+        <img class="logo" src="Assets/logo-color 1.png" alt="logo">
         <div>
             <a class="nav-link" href="">Features</a>
             <a class="nav-link" href="">Solutions</a>
@@ -35,163 +33,369 @@
     </nav>
 
     <!-- First section on the landing page -->
-    <section>
-        <div class="left-section">
-            <h1>Extend the content on IPFS with APIs</h1>
-            <p>
-                Building apps on IPFS can be hard. Deupload makes it easy. Our developer tools, first-party SDKs, and integrated developer docs let you quickly build and deploy in days.
-            </p>
-            <div>
-                <button class="btn-1">Getting Started</button>
-                <button class="btn-2">Documentation</button>
+    <section class="section-one">
+        <div class="container row">
+            <div class="left-section">
+                <h1>Extend the content on IPFS with APIs</h1>
+                <p>
+                    Building apps on IPFS can be hard. Deupload makes it easy. Our developer tools, first-party SDKs, and integrated developer docs let you quickly build and deploy in days.
+                </p>
+                <div>
+                    <button class="btn-1">Getting Started</button>
+                    <button class="btn-2">Documentation</button>
+                </div>
             </div>
-        </div>
-        <div class="right-section">
-            <img src="Assets/Group.png" alt="Programming languages for frontend deveopment">
+            <div class="right-section">
+                <img class="hero-img" src="Assets/Group.png" alt="Programming languages for frontend deveopment">
+            </div>
         </div>
     </section>
 
     <!-- Second section on the landing page -->
-    <section>
-        <div>
-            <div>
+    <section class="section-two">
+        <div class="container">
+            <div class="header">
                 <h1>See what you can do with APIs</h1>
                 <p>
                     You can go from idea to implementation quickly and easily. You’ll save time and write fewer lines of code with our SDKs, powerful core API, and thorough documentation.
                 </p>
-            </div>
-            <div>
-
-            </div>
+            </div>  
+            <div class="boxes">
+                <div class="box">
+                    <img src="Assets/diagram-project 1.png" alt="">
+                    <h2>Integrations</h2>
+                    <p>
+                        Connect to other systems and take action files and folders like creating, reading, editing, moving, and deleting.
+                    </p>
+                </div>
+                <div class="box">
+                    <img src="Assets/people-arrows-left-right 1.png" alt="">
+                    <h2>Collaboration</h2>
+                    <p>
+                        Embed into any app and empower your teams to work with anyone on a single IPFS file manament platform. 
+                    </p>
+                </div>
+                <div class="box">
+                    <img src="Assets/sidebar 1.png" alt="">
+                    <h2>Build Your App</h2>
+                    <p>
+                        Building IPFS file management can be hard. Our developer tools let you quickly build and deploy content apps.
+                    </p>
+                </div>
+            </div>  
         </div>
-            <div class="box">
-                <img src="Assets/file-pen 1.png" alt="file-pen">
-                <h2>Integrations</h2>
-                <p>
-                    Connect to other systems and take action files and folders like creating, reading, editing, moving, and deleting.  
-                </p>
-            </div>
-            <div class="box">
-                <img src="Assets/people-arrows-left-right 1.png" alt="people-arrows-left-right">
-                <h2>Collaboration</h2>
-                <p>
-                    Embed into any app and empower your teams to work with anyone on a single IPFS file manament platform.
-                </p>
-            </div>
-            <div class="box">
-                <img src="Assets/sidebar 1.png" alt="sidebar">
-                <h2>Build Your App</h2>
-                <p>
-                    Building IPFS file management can be hard. Our developer tools let you quickly build and deploy content apps.
-                </p>
-            </div>
     </section>
+
 
     
     <!-- Third section on the landing page -->
-    <section>
-        <div class="left-section">
-            <img src="Assets/Rectangle 119.png" alt="Programming code">
-        </div>
-        <div class="right-section">
-            <h1>Start building your apps on IPFS with Deupload’s APIs and SDKs.</h1>
-            <p>
-                Aggregate data from many sources into your team’s workspace. Spend less time context switching, and increase visibility across the software and services you rely on.
-            </p>
-            <div>
-                <button class="btn-1">Quick Start</button>
-                <button class="btn-2">Live Examples</button>
+    <section class="section-three">
+        <div class="container flex-max">
+            <div class="left-section">
+                <img src="Assets/Group 259.svg" alt="Programming code">
+            </div>
+            <div class="right-section gap-max">
+                <h1>Start building your apps on IPFS with Deupload’s APIs and SDKs.</h1>
+                <p>
+                    Aggregate data from many sources into your team’s workspace. Spend less time context switching, and increase visibility across the software and services you rely on.
+                </p>
+                <div>
+                    <button class="btn-1">Quick Start</button>
+                    <button class="btn-2">Live Examples</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Fourth section on the landing page -->
-    <section>
-        <div>
-            <h1>How does it work?</h1>
-            <p>
-                Our developer platform puts the power in your hands to create the tools to improve efficiency, expand functionality, and bring ideas to life.
-            </p>
-        </div>
-        <div class="flex-box">
-            <!-- How box 1 -->
-            <div class="how-box">
-                <div>
+    <section class="section-four">
+        <div class="container gap">
+            <div class="header">
+                <h1>How does it work?</h1>
+                <p>
+                    Our developer platform puts the power in your hands to create the tools to improve efficiency, expand functionality, and bring ideas to life.
+                </p>
+            </div>
+            <div class="boxes">
+                <!-- How box 1 -->
+                <div class="how-box">
                     <img src="Assets/Group 91.png" alt="Key"> 
-                    <p>Authentication</p>
+                    <div class="items">
+                        <h2>Authentication</h2>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Registration</p>
+                        </div>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Login / Logout</p>
+                        </div>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Reset password</p>
+                        </div> 
+                    </div>
                 </div>
-                <div>
-                    <img src="Assets/circle-check.png" alt="circle-check"> Registration
-                    <img src="Assets/circle-check.png" alt="circle-check"> Login / Logout
-                    <img src="Assets/circle-check.png" alt="circle-check"> Reset password
+                <!-- How box 2 -->
+                <div class="how-box">
+                    <div>
+                        <img src="Assets/Group 92.png" alt="Person">
+                    </div>
+                    <div class="items">
+                        <h2>Account</h2>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Profile</p>
+                        </div>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Access token</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Subscription</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Notifications</p>
+                        </div> 
+                    </div>
+                </div>
+                <!-- How box 3 -->
+                <div class="how-box">
+                    <div>
+                        <img src="Assets/Group 93.png" alt="Team">
+                    </div>
+                    <div class="items">
+                        <h2>Teams</h2>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Team management</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Invitations</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Navigation</p>
+                        </div> 
+                    </div>
+                </div>
+                <!-- How box 4 -->
+                <div class="how-box">
+                    <div>
+                        <img src="Assets/Group 96.png" alt="File Upload">
+                    </div>
+                    <div class="items">
+                        <h2>File Upload</h2>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Upload file</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>File Editing</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Zip file</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Browsing files</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Trash item</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Favorite folder</p>
+                        </div> 
+                    </div>
+                </div>
+                <!-- How box 5 -->
+                <div class="how-box">
+                    <div>
+                        <img src="Assets/Group 95.png" alt="File Sharing"> 
+                    </div>
+                    <div class="items">
+                        <h2>File Sharing</h2>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Edit sharing</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Share browsing</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Manage sharing</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Share uploading</p>
+                        </div> 
+                    </div>
+                </div>
+                <!-- How box 6 -->
+                <div class="how-box">
+                    <div>
+                        <img src="Assets/Group 94.png" alt="File Request">
+                    </div>
+                    <div class="items">
+                        <h2>File Request</h2>
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>File request management</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>File editing</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Request browsing</p>
+                        </div> 
+                        <div>
+                            <img src="Assets/circle-check.png" alt="circle-check"> 
+                            <p>Request uploading</p>
+                        </div> 
+                    </div>
                 </div>
             </div>
-            <!-- How box 2 -->
-            <div class="how-box">
-                <div>
-                    <img src="Assets/Group 92.png" alt="Person">
-                    <p>Account</p>
-                </div>
-                <div>
-                    <img src="Assets/circle-check.png" alt="circle-check"> Profile
-                    <img src="Assets/circle-check.png" alt="circle-check"> Access token
-                    <img src="Assets/circle-check.png" alt="circle-check"> Subscription
-                    <img src="Assets/circle-check.png" alt="circle-check"> Notifications
+
+        </div> 
+    </section>
+
+    <!-- Fifth section on the landing page -->
+    <section class="section-five">
+        <div class="container">
+            <div class="flex">
+                <img class="insomnia-img" src="Assets/insomnia-seeklogo.com 1.png" alt="">
+                <p>insomnia</p>
             </div>
-            <!-- How box 3 -->
-            <div class="how-box">
+            <div>
+                <img class="code-img" src="Assets/Group 97.png" alt="">
+            </div>
+            <div class="header gap">
+                <h1>API Development Tool</h1>
+                <p>
+                    API Documentation in Insomnia client will bring you flexible and interactive experience while you are working on your own application with Deupload API.
+                </p>
+            </div>
+            <div class="flex">
+                <button class="btn">Download API Tool</button>
+                <button class="btn">API Documentation</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-six">
+        <div class="container">
+            <div class="grid-1">
                 <div>
-                    <img src="Assets/Group 93.png" alt="Team">
-                    <p>Teams</p>
+                    <div>
+                        <h2>API Reference</h2>
+                        <p>Leverage the power of our REST API to bring IPFS file into your external tools and products.</p>
+                    </div>
+                    <div>
+                        <p>Read documents</p>
+                        <img src="Assets/Reading glasses-bro 1.png" alt="">
+                    </div>
                 </div>
                 <div>
-                    <img src="Assets/circle-check.png" alt="circle-check"> Team management
-                    <img src="Assets/circle-check.png" alt="circle-check"> Invitations
-                    <img src="Assets/circle-check.png" alt="circle-check"> Navigation
+                    <div>
+                        <h2>Development kits</h2>
+                        <p>We offer several official SDKs for certain programming languages that you can use in your apps.</p>
+                    </div>
+                    <div>
+                        <p>Download SDKs</p>
+                        <img src="Assets/Hand coding-bro 1.png" alt="">
+                    </div>
                 </div>
             </div>
-            <!-- How box 4 -->
-            <div class="how-box">
-                <div>
-                    <img src="Assets/Group 96.png" alt="File Upload">
-                    <p>File Upload</p>
+            <div class="grid-2">
+                <div class="first-place">
+                    <div>
+                        <h2>Join our community</h2>
+                        <p>Learn from others, share your work, and extend your tool set with a diverse group of developers from around the world.</p>
+                    </div>
+                    <div>
+                        <button>Submit a question</button>
+                        <img src="Assets/Work chat-bro 1.png" alt="">
+                    </div>
                 </div>
-                <div>
-                    <img src="Assets/circle-check.png" alt="circle-check"> Upload file
-                    <img src="Assets/circle-check.png" alt="circle-check"> File Editing
-                    <img src="Assets/circle-check.png" alt="circle-check"> Zip file
-                    <img src="Assets/circle-check.png" alt="circle-check"> Browsing files
-                    <img src="Assets/circle-check.png" alt="circle-check"> Trash item
-                    <img src="Assets/circle-check.png" alt="circle-check"> Favorite folder
-                </div>
-            </div>
-            <!-- How box 5 -->
-            <div class="how-box">
-                <div>
-                    <img src="Assets/Group 95.png" alt="File Sharing"> 
-                    <p>File Sharing</p>
-                </div>
-                <div>
-                    <img src="Assets/circle-check.png" alt="circle-check"> Edit sharing
-                    <img src="Assets/circle-check.png" alt="circle-check"> Share browsing
-                    <img src="Assets/circle-check.png" alt="circle-check"> Manage sharing
-                    <img src="Assets/circle-check.png" alt="circle-check"> Manage sharing
-                </div>
-            </div>
-            <!-- How box 6 -->
-            <div class="how-box">
-                <div>
-                    <img src="Assets/Group 94.png" alt="File Request">
-                    <p>File Request</p>
-                </div>
-                <div>
-                    <img src="Assets/circle-check.png" alt="circle-check"> File request management
-                    <img src="Assets/circle-check.png" alt="circle-check"> File editing
-                    <img src="Assets/circle-check.png" alt="circle-check"> Request browsing
-                    <img src="Assets/circle-check.png" alt="circle-check"> Request uploading
+                <div class="second-place">
+                    <div>
+                        <h2>Changelog</h2>
+                        <p>Keep track of changes and upgrades to the Deupload API.</p>
+                    </div>
+                    <div>
+                        <p>Releases</p>
+                        <img src="Assets/Version control-bro 1.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Seventh section of the landing page -->
+    <footer class="section-seven">
+        <div class="container flex-max">
+            <div>
+                <p>Sign up for developer updates</p>
+                <h2>Try something fresh and new on next version</h2>
+                <div>
+                    <input type="email" placeholder="Enter your email">
+                    <button>Sign Up</button>
+                </div>
+                <p>You can unsubscribe at any time. Read our <span>privacy policy</span></p>
+            </div>
+            <img src="Assets/Mail-bro 1.png" alt="">
+        </div>
+    </footer>
+
+    <!-- Eighth section of the landing page -->
+     <footer class="section-eight">
+        <div class="container flex-max gap" >
+          <div>
+            <h2>What is Deupload?</h2>
+            <p>Deupload is a cloud storage services based on Blockchain and Web3 technology, designed to help teams collaborate and file sharing in a completely private like never before.</p>
+            <img src="Assets/Secure badge.png" alt="">
+          </div> 
+          <div class="products">
+            <h2>Products</h2>
+            <p>Features</p>
+            <p>Solutions</p>
+            <p>Pricing</p>
+            <p>Token</p>
+            <p>Security</p>
+            <p>Comparison</p>
+          </div> 
+
+          <div class="resources">
+            <h2>Resources</h2>
+            <p>Whitepaper</p>
+            <p>Developer</p>
+            <p>Band Kits</p>
+            <p>Compliance</p>
+            <p>Privacy Policy</p>
+            <p>Terms of service</p>
+          </div> 
+
+          <div class="community">
+            <h2>Community</h2>
+            <p>Guide</p>
+            <p>Blogs</p>
+            <p>FAQs</p>
+            <p>Forum</p>
+            <p>Health Center</p>
+            <p>Support Desk</p>
+          </div> 
+        </div>
+     </footer>
 </body>
 </html>
