@@ -6,7 +6,7 @@
   <title>CSS Clock</title>
   <style>
     * {
-      background-size: cover;
+      box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
       text-align: center;
       font-size: 10px;
@@ -15,10 +15,13 @@
     body {
       font-size: 2rem;
       display: flex;
-      flex: 1;
+      flex-direction: column;
       min-height: 100vh;
       align-items: center;
       margin: 0;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
     }
 
     .clock {
@@ -29,7 +32,12 @@
       margin: 50px auto;
       position: relative;
       padding: 2rem;
-      box-shadow: 0 0 0px 4px rgba(0, 0, 0, 1), inset 0 0 0 3px #efefef, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 2);
+      box-shadow: 0 0 0px 4px rgba(0, 0, 0, 1), 
+                  inset 0 0 0 3px #efefef, 
+                  inset 0 0 10px black, 
+                  0 0 10px rgba(0, 0, 0, 2);
+      background-color: white;
+      transition: all 0.3s ease;
     }
 
     .clock-face {
@@ -50,6 +58,68 @@
       transition: all 0.5s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
+
+    .hour-hand {
+      width: 35%;
+      left: 15%;
+      height: 8px;
+    }
+
+    .min-hand {
+      height: 6px;
+    }
+
+    .second-hand {
+      height: 4px;
+      background: red;
+    }
+
+    .number {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transform-origin: 50%;
+      font-weight: bold;
+      font-size: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .clock:hover .number {
+      opacity: 1;
+    }
+
+    .controls {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    label {
+      font-size: 1.4rem;
+    }
+
+    input[type="color"] {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
   </style>
 </head>
 
@@ -61,39 +131,104 @@
       <div class="hand second-hand"></div>
     </div>
   </div>
-  
+
+  <div class="controls">
+    <div class="control-group">
+      <label for="frameColor">Frame Color</label>
+      <input type="color" id="frameColor" value="#000000">
+    </div>
+    <div class="control-group">
+      <label for="innerColor">Inner Color</label>
+      <input type="color" id="innerColor" value="#ffffff">
+    </div>
+    <div class="control-group">
+      <label for="handColor">Hands Color</label>
+      <input type="color" id="handColor" value="#000000">
+    </div>
+    <div class="control-group">
+      <label for="numberColor">Numbers Color</label>
+      <input type="color" id="numberColor" value="#000000">
+    </div>
+  </div>
 
   <script>
     const secondHand = document.querySelector('.second-hand');
     const minuteHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
+    const clock = document.querySelector('.clock');
+    const clockFace = document.querySelector('.clock-face');
+
+    // Background images array
     const images = [
-      'url./js/Assets/)',
-      'url((link unavailable))',
-      'url((link unavailable))',
-      // Add more images here
+      'url("https://source.unsplash.com/random/1920x1080?nature")',
+      'url("https://source.unsplash.com/random/1920x1080?city")',
+      'url("https://source.unsplash.com/random/1920x1080?landscape")'
     ];
     let currentIndex = 0;
 
-    function setDate() {
-      const now = new Date();
-      const second = now.getSeconds();
-      const minute = now.getMinutes();
-      const hour = now.getHours();
-      const secondDegrees = ((second / 60) * 360) + 90;
-      const minuteDegrees = ((minute / 60) * 360) + 90;
-      const hourDegree = ((hour % 12) / 12) * 360 + 90;
-      secondHand.style.transform = `rotate(${secondDegrees}deg)`;
-      minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
-      hourHand.style.transform = `rotate(${hourDegree}deg)`;
+    // Create clock numbers
+    for (let i = 1; i <= 12; i++) {
+      const number = document.createElement('div');
+      number.className = 'number';
+      number.style.transform = `rotate(${i * 30}deg)`;
+      number.innerHTML = `<span style="display: inline-block; transform: rotate(-${i * 30}deg)">${i}</span>`;
+      clockFace.appendChild(number);
     }
 
+    // Time functions
+    function setDate() {
+      const now = new Date();
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours();
+      
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
+      const minutesDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90;
+      const hoursDegrees = ((hours % 12) / 12) * 360 + ((minutes / 60) * 30) + 90;
+
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+      minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+      hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    }
+
+    // Background changer
     function changeBackground() {
-      document.documentElement.style.backgroundImage = images[currentIndex];
+      document.body.style.backgroundImage = images[currentIndex];
       currentIndex = (currentIndex + 1) % images.length;
     }
 
+    // Color control functions
+    document.getElementById('frameColor').addEventListener('input', (e) => {
+      clock.style.borderColor = e.target.value;
+      clock.style.boxShadow = `0 0 0px 4px ${e.target.value}, 
+                              inset 0 0 0 3px #efefef, 
+                              inset 0 0 10px black, 
+                              0 0 10px rgba(0, 0, 0, 0.2)`;
+    });
+
+    document.getElementById('innerColor').addEventListener('input', (e) => {
+      clock.style.backgroundColor = e.target.value;
+    });
+
+    document.getElementById('handColor').addEventListener('input', (e) => {
+      document.querySelectorAll('.hand').forEach(hand => {
+        if (!hand.classList.contains('second-hand')) {
+          hand.style.backgroundColor = e.target.value;
+        }
+      });
+    });
+
+    document.getElementById('numberColor').addEventListener('input', (e) => {
+      document.querySelectorAll('.number').forEach(number => {
+        number.style.color = e.target.value;
+      });
+    });
+
+    // Initialize
     setInterval(setDate, 1000);
-    setInterval(changeBackground, 5000); // Change background every 5 seconds
+    setInterval(changeBackground, 5000);
+    changeBackground(); // Initial background
+    setDate(); // Initial time set
   </script>
 </body>
+</html>
