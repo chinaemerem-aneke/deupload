@@ -1,0 +1,13 @@
+.frame {
+    width: 1000px;
+    height: 262px;
+}
+
+.one {
+    color: #ECECFE;
+    background-color: var(--dark);
+}
+
+.header h1 {
+    color: var(--white);
+}
