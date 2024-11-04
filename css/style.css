@@ -65,7 +65,6 @@ a {
 .flex-column {
     display: flex;
     flex-direction: column;
-    color: va;
 }
 
 .gap * {
@@ -232,6 +231,18 @@ section {
     height: 563px;
 }
 
+.section-three .right-section h1 {
+    font-size: var(--fs-800);
+    line-height: var(--lh-400);
+    color: var(--dark-primary);
+}
+
+.section-three .right-section p {
+    color: var(--sub-text);
+    font-size: var(--fs-500);
+    line-height: var(--lh-300);
+}
+
 .section-four .boxes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -308,6 +319,11 @@ section {
     border-radius: 10px;
 }
 
+.grid-1 h2,
+.grid-2 h2 {
+    color: var(--dark);
+}
+
 .grid-1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -329,6 +345,14 @@ section {
   
 .second-place {
     grid-area: second-place;
+}
+
+.submit-btn {
+    justify-self: flex-end;
+    padding: 1em;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: .8em;
 }
   
 .section-seven img {
@@ -368,11 +392,20 @@ section {
 }
 
 .section-seven input[type="email"] {
-    padding: 1em 1.5em;
+    padding: 1em ;
     border: 1px solid #E5E7EB;
     border-radius: 8px;
     width: 300px;
     font-size: var(--fs-400);
+}
+
+.section-seven #top-section p:nth-child(1) {
+    font-size: var(--fs-300);
+    color: var(--primary);
+}
+
+.section-seven #top-section h2 {
+    font-size: var(--fs-700);
 }
 
 .section-seven button {
@@ -381,6 +414,7 @@ section {
     padding: 1em 2em;
     border-radius: 8px;
     font-size: var(--fs-400);
+    translate: -2em;
 }
 
 .section-seven span {
@@ -405,6 +439,16 @@ footer {
 .section-eight {
     display: flex;
     flex-direction: column;
+    padding: 1em;
+}
+
+.gap-max h2 {
+    font-size: var(--fs-600);
+}
+
+.gap-max p {
+    font-size: var(--fs-400);
+    line-height: var(--lh-200);
 }
 
 .last-footer {
@@ -413,6 +457,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 1em;
 }
 
 .last-footer > img{
@@ -422,4 +467,5 @@ footer {
 
 .last-footer p {
     margin-left: 1.5em;
+    font-size: var(--fs-300);
 }
