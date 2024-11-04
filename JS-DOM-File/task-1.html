@@ -3,9 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drum bits</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --key-bg: #f0f0f0;
+            --key-border: #cccccc;
+            --key-active: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #333333;
+            --text-color: #ffffff;
+            --key-bg: #444444;
+            --key-border: #555555;
+            --key-active: #666666;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .keys {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            gap: 8px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .key {
+            border: 2px solid var(--key-border);
+            border-radius: 8px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--key-bg);
+            transition: all 0.07s ease;
+            cursor: pointer;
+        }
+
+        .key.playing {
+            transform: scale(1.1);
+            background: var(--key-active);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .key-letter {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .sound-name {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
+    <button class="theme-switch" onclick="toggleTheme()">Toggle Theme</button>
     
+    <div class="keys" id="keys"></div>
+
+    <script>
+        const keyMap = {
+            // Letters A-Z with different drum/percussion sounds
+            'A': { sound: 'kick', description: 'Kick' },
+            'B': { sound: 'snare', description: 'Snare' },
+            'C': { sound: 'hihat', description: 'Hi-Hat' },
+            'D': { sound: 'tom1', description: 'Tom 1' },
+            'E': { sound: 'tom2', description: 'Tom 2' },
+            'F': { sound: 'crash', description: 'Crash' },
+            'G': { sound: 'ride', description: 'Ride' },
+            'H': { sound: 'clap', description: 'Clap' },
+            'I': { sound: 'rim', description: 'Rim Shot' },
+            'J': { sound: 'shaker', description: 'Shaker' },
+            'K': { sound: 'cowbell', description: 'Cowbell' },
+            'L': { sound: 'tambourine', description: 'Tambourine' },
+            'M': { sound: 'woodblock', description: 'Wood Block' },
+            'N': { sound: 'conga1', description: 'Conga High' },
+            'O': { sound: 'conga2', description: 'Conga Low' },
+            'P': { sound: 'bongo1', description: 'Bongo High' },
+            'Q': { sound: 'bongo2', description: 'Bongo Low' },
+            'R': { sound: 'triangle', description: 'Triangle' },
+            'S': { sound: 'guiro', description: 'Guiro' },
+            'T': { sound: 'cabasa', description: 'Cabasa' },
+            'U': { sound: 'maracas', description: 'Maracas' },
+            'V': { sound: 'whistle', description: 'Whistle' },
+            'W': { sound: 'bell', description: 'Bell' },
+            'X': { sound: 'vibraslap', description: 'Vibraslap' },
+            'Y': { sound: 'cuica', description: 'Cuica' },
+            'Z': { sound: 'agogo', description: 'Agogo' },
+            
+            // Numbers 0-9 with animal sounds
+            '0': { sound: 'lion', description: 'Lion' },
+            '1': { sound: 'elephant', description: 'Elephant' },
+            '2': { sound: 'wolf', description: 'Wolf' },
+            '3': { sound: 'eagle', description: 'Eagle' },
+            '4': { sound: 'monkey', description: 'Monkey' },
+            '5': { sound: 'snake', description: 'Snake' },
+            '6': { sound: 'horse', description: 'Horse' },
+            '7': { sound: 'dolphin', description: 'Dolphin' },
+            '8': { sound: 'cat', description: 'Cat' },
+            '9': { sound: 'dog', description: 'Dog' }
+        };
+
+        // Create keyboard keys
+        const keysContainer = document.getElementById('keys');
+        Object.entries(keyMap).forEach(([key, value]) => {
+            const keyDiv = document.createElement('div');
+            keyDiv.className = 'key';
+            keyDiv.setAttribute('data-key', key);
+            keyDiv.innerHTML = `
+                <div class="key-letter">${key}</div>
+                <span class="sound-name">${value.description}</span>
+            `;
+            keysContainer.appendChild(keyDiv);
+        });
+
+        // Handle keyboard events
+        window.addEventListener('keydown', (e) => {
+            const key = e.key.toUpperCase();
+            if (keyMap[key]) {
+                playSound(key);
+            }
+        });
+
+        // Handle click events
+        document.querySelectorAll('.key').forEach(key => {
+            key.addEventListener('click', () => {
+                const keyValue = key.getAttribute('data-key');
+                playSound(keyValue);
+            });
+        });
+
+        function playSound(key) {
+            const keyElement = document.querySelector(`[data-key="${key}"]`);
+            if (!keyElement) return;
+
+            // Add playing class for animation
+            keyElement.classList.add('playing');
+            
+            // Remove playing class after animation
+            setTimeout(() => {
+                keyElement.classList.remove('playing');
+            }, 70);
+
+            // Here you would normally play the sound
+            // You'll need to replace this with actual sound files from ZapSplat
+            console.log(`Playing sound for key: ${key} - ${keyMap[key].description}`);
+        }
+
+        // Theme switcher
+        function toggleTheme() {
+            document.body.setAttribute('data-theme',
+                document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+            );
+        }
+    </script>
 </body>
 </html>
