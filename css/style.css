@@ -439,7 +439,6 @@ footer {
 .section-eight {
     display: flex;
     flex-direction: column;
-    padding: 1em;
 }
 
 .gap-max h2 {
@@ -447,8 +446,8 @@ footer {
 }
 
 .gap-max p {
-    font-size: var(--fs-400);
-    line-height: var(--lh-200);
+    font-size: var(--fs-300);
+    line-height: var(--lh-300);
 }
 
 .last-footer {
@@ -467,5 +466,9 @@ footer {
 
 .last-footer p {
     margin-left: 1.5em;
+    font-size: var(--fs-300);
+}
+
+.flex-column p {
     font-size: var(--fs-300);
 }
